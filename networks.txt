@@ -1,0 +1,41 @@
+Networks:
+OSI 7 layer model
+- Physical, Fiber optics/hardware to transmit bits
+- Data Link, Connecting data to hardware, MAC addressing in routers, multiplexing error checking
+- Network, world-wide addressing of devices -- IP addresses
+- Transport, packetization and ordering of data -- TCP/UDP
+- Session, opening and closing of connected sessions -- TCP/UDP
+- Presentation, serialization/deserialization of data for consumption
+- Application set of api's to communicate across networks
+Public and private IP's
+- Private IP addresses: start with 192.168.xxx.xxx or 10.xxx.xxx.xxx
+- Private IP addresses are behind routers. used on local area networks
+- Your router has your public ip address
+IPv4 vs IPv6
+- IPv4 uses 32 bits for addresses
+- IPv6 uses 128 bits for addresses
+TCP vs UDP
+- UDP is more primitive, does not guarantee order or that packets are received
+- TCP is UDP wrapped in some stuff to make sure packets are received in an ordered manner
+- TCP is used in HTTP, FTP and Telnet
+- Client ------> Syn ------> Server
+-        <---- Syn/Ack <----- 
+-        -------> Ack ------>
+- MAC addresses (Media Access Control) are hardwired to Network Interface Card (NIC)
+- used to identify devices, can be used as address in LAN
+- At lower levels of Ethernet, everything is translated to MAC addresses via ARP (Address Resolution Protocol) can be hacked
+Addressing
+- All IP addresses are composed of network and host sections
+- Calculate network and host sections witho IP address + Subnet Mask and bitwise AND operator.
+- in IPv6 Calculate with number after the slash as number of bits in network section
+- Network section = network address. Host section = host address within a given network
+DHCP (Dynamic Host Configuration Protocol)
+- vs. static assignment... Assign host IPs in a given network
+- Clients search/connect to a DHCP, query and are assigned a host ip on the network
+- Sometimes DHCP will have a default name server for routing
+- DHCP can be spoofed to serve bad names
+Classful networks vs Classless Inter-Domain Routing (CIDR)
+- Classful -> IPv4 replaced with CIDR in 1993
+- has variable length subnet masking and CIDR notation.
+- Address is suffixed with the number of bits in the prefix (instead of subnet mask?)
+- variable length subnet masking allows networks to be sized appropriately according to needs (based on available host ip address space?)
