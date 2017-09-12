@@ -1,0 +1,14 @@
+{
+  "name": "interview_prep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "singly-linked-list.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^21.0.2"
+  }
+}
