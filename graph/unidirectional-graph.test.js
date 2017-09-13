@@ -42,8 +42,20 @@ describe('unidirectional-graph.js', () => {
     });
   });
 
+  describe('UnidirectionalGraph remove', () => {
+    it('removes a node from the graph', () => {
+      Graph.add(1);
+      Graph.add(2);
+      Graph.add(3);
+      Graph.addEdge(1, 2);
+      Graph.addEdge(2, 3);
+      expect(Graph.isTraversable(1, 3)).toBe(true);
+      Graph.remove(2);
+    });
+  });
+
   describe('UnidirectionalGraph isTraversable', () => {
-    it('return true if two points are connected/traversable', () => {
+    it('return true if two points are connected/traversable, false otherwise', () => {
       Graph.add(1);
       Graph.add(2);
       Graph.add(3);

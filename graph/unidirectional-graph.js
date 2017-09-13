@@ -16,6 +16,24 @@ UnidirectionalGraph.prototype.add = function(value) {
   this.length++;
 };
 
+UnidirectionalGraph.prototype.remove = function(value) {
+  if (this.nodes[value] === undefined) {
+    return false;
+  }
+  this.nodes[value] = undefined;
+  const valueKeys = Object.keys(this.nodes);
+  valueKeys.map((key) => this.nodes[key])
+  .filter((node) => node !== undefined)
+  .map((node) => {
+    node.friends.map((friend, i) => {
+      if (friend.value === value) {
+        delete node.friends[i];
+      }
+    });
+  });
+  return true;
+};
+
 UnidirectionalGraph.prototype.addEdge = function(startNodeValue, endNodeValue) {
   const startNode = this.nodes[startNodeValue];
   const endNode = this.nodes[endNodeValue];
