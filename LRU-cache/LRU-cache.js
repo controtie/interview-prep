@@ -53,7 +53,7 @@ LinkedListMethods.add = function(value) {
     this.head = newEntry;
     this.tail = newEntry;
   } else {
-    if (this.length === this.limit) {
+    if (this.length >= this.limit) {
       removedEntry = this.removeTail();
     }
     newEntry.next = this.head;
@@ -65,6 +65,9 @@ LinkedListMethods.add = function(value) {
 };
 
 LinkedListMethods.remove = function(value) {
+  if (this.head === null) {
+    return null;
+  }
   const findRemovalNode = (currentNode) => {
     if (currentNode.value === value) {
       return currentNode;
@@ -112,13 +115,13 @@ LinkedListMethods.removeTail = function() {
 
 LinkedListMethods.LRUAdd = function(value) {
   this.remove(value);
-  return this.add(value);
+  let removedNode = this.add(value);
+  return removedNode;
 }
 
 const Node = (value) => {
   return {value, next: null, prev: null};
 };
-
 
 module.exports = {
   LRUCache,

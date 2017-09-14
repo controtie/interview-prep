@@ -87,6 +87,18 @@ describe('LRU Cache', () => {
       expect(Cache.list.tail.value).toBe('a');
       expect(Cache.list.head.next.value).toBe('b');
     });
+    xit('correctly adds new values when limits are reached', () => {
+      Cache.add('a', 'one');
+      Cache.add('b', 'two');
+      Cache.add('c', 'three');
+      Cache.add('d', 'four');
+      expect(Cache.storage['a']).toBe('one');
+      expect(Cache.storage['b']).toBe('two');
+      expect(Cache.storage['c']).toBe('three');
+      expect(Cache.list.head.value).toBe('d');
+      expect(Cache.list.tail.value).toBe('b');
+      expect(Cache.list.head.next.value).toBe('c');
+    });
   });
 
 });
