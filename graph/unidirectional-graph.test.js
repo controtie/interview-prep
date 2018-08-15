@@ -1,7 +1,7 @@
 // const UnidirectionalGraph = require('./unidirectional-graph');
 const UnidirectionalGraph = require('./unidirectional-graph-2');
 
-describe.only('unidirectional-graph.js', () => {
+describe('unidirectional-graph.js', () => {
   let Graph;
   beforeEach(() => {
     Graph = new UnidirectionalGraph();
