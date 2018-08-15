@@ -1,9 +1,10 @@
-const UnidirectionalGraph = require('./unidirectional-graph');
+// const UnidirectionalGraph = require('./unidirectional-graph');
+const UnidirectionalGraph = require('./unidirectional-graph-2');
 
-describe('unidirectional-graph.js', () => {
+describe.only('unidirectional-graph.js', () => {
   let Graph;
   beforeEach(() => {
-    Graph = new UnidirectionalGraph;
+    Graph = new UnidirectionalGraph();
   });
   it('can be imported', () => {
     expect(UnidirectionalGraph).not.toEqual({});
