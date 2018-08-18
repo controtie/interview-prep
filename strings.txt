@@ -2,13 +2,16 @@ Strings:
 Unicode vs ASCII
 - Validate what kind of strings are used as inputs from interviewer
 - Usually this is Unicode or ASCII
+- _All_ text is encoded text. All files require a character set and an encoding scheme
 
 ASCII:
-- ASCII is more primitive, it defines 128 characters, with numbers from 0 - 128
-- For example, the ASCII number 65 is defined as the capital letter 'A'
+- ASCII is more primitive.
+- Defines 128 characters, with numbers from 0 - 128
+- e.g., ASCII number 65 = the capital letter 'A'
 - Why 128 characters? (a byte should allow for 256 combinations)
   - We only use 7 bits for characters. The last bit is called the parity bit.
   - The parity bit is used for error checking
+  - Some versions of 'extended ASCII' use the last bit for more characters instead
 
 Unicode:
 - Unicode is a superset of ASCII
