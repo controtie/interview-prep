@@ -28,8 +28,46 @@ const isUniqueNoDS = (string) => {
   return true;
 };
 
+const stringToTable = (string) => {
+  const table = {};
+  for (let i = 0; i < string.length; i++) {
+    if (table[string[i]] === undefined) {
+      table[string[i]] = 1;
+    } else {
+      table[string[i]] += 1;
+    }
+  };
+
+  return table;
+};
+
+const isPermutation = (stringOne, stringTwo) => {
+  const tableOne = stringToTable(stringOne);
+  const tableTwo = stringToTable(stringTwo);
+  const keysOne = Object.keys(tableOne);
+
+  for (let i = 0; i < keysOne.length; i++) {
+    const currentKey = keysOne[i];
+    if (tableOne[currentKey] !== tableTwo[currentKey]) {
+      return false;
+    }
+  }
+
+  const keysTwo = Object.keys(tableTwo);
+
+  for (let i = 0; i < keysTwo.length; i++) {
+    const currentKey = keysTwo[i];
+    if (tableOne[currentKey] !== tableTwo[currentKey]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 module.exports = {
   isUnique,
   isUniqueNoDS,
+  isPermutation,
 };
 

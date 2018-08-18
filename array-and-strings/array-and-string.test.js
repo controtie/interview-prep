@@ -1,6 +1,7 @@
 const {
   isUnique,
   isUniqueNoDS,
+  isPermutation,
 }= require('./array-and-strings-1');
 
 describe('string-and-arrays', () => {
@@ -39,6 +40,28 @@ describe('string-and-arrays', () => {
       const expectedOutput = false;
 
       const output = isUniqueNoDS(input);
+
+      expect(output).toEqual(expectedOutput);
+    });
+  });
+
+  describe('isPermutation', () => {
+    it('returns true if one string is a permutation of the other', () => {
+      const input1 = 'no duplicates';
+      const input2 = 'duplicno ates';
+      const expectedOutput = true;
+
+      const output = isPermutation(input1, input2);
+
+      expect(output).toEqual(expectedOutput);
+    });
+
+    it('returns false if one string is not a permutation of the other', () => {
+      const input1 = 'no duplicates!';
+      const input2 = 'duplicno ates';
+      const expectedOutput = false;
+
+      const output = isPermutation(input1, input2);
 
       expect(output).toEqual(expectedOutput);
     });
