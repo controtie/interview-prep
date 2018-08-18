@@ -1,0 +1,20 @@
+Strings:
+Unicode vs ASCII
+- Validate what kind of strings are used as inputs from interviewer
+- Usually this is Unicode or ASCII
+
+ASCII:
+- ASCII is more primitive, it defines 128 characters, with numbers from 0 - 128
+- For example, the ASCII number 65 is defined as the capital letter 'A'
+- Why 128 characters? (a byte should allow for 256 combinations)
+  - We only use 7 bits for characters. The last bit is called the parity bit.
+  - The parity bit is used for error checking
+
+Unicode:
+- Unicode is a superset of ASCII
+- The first 128 numbers have the same meaning as they do in ASCII
+- Unicode supports many more characters, up to just under 2^21
+- Since Unicode characters don't always fit into 8-bit bytes, there are multiple encodings
+- e.g. UTF-8 and UTF-32
+
+
