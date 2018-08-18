@@ -65,9 +65,49 @@ const isPermutation = (stringOne, stringTwo) => {
   return true;
 };
 
+const getAllZeroes = (matrix) => {
+  const allZeroes = [];
+  matrix.forEach((row, rowIndex) => {
+    row.forEach((value, columnIndex) => {
+      if (value === 0) {
+        allZeroes.push([rowIndex, columnIndex]);
+      }
+    });
+  });
+  return allZeroes;
+};
+
+const toggleRow = (matrix, rowIndex) => {
+  const rowLength = matrix[rowIndex].length;
+  const newRow = [];
+  newRow.length = rowLength;
+  newRow.fill(0);
+  matrix[rowIndex] = newRow;
+  return matrix;
+};
+
+const toggleColumn = (matrix, columnIndex) => {
+  matrix.forEach(row => {
+    row[columnIndex] = 0;
+  });
+  return matrix;
+};
+
+const bomberMan = (matrix) => {
+  const allZeroes = getAllZeroes(matrix);
+  allZeroes.forEach(coordinates => {
+    toggleRow(matrix, coordinates[0]);
+    toggleColumn(matrix, coordinates[1]);
+  });
+  return matrix;
+};
+
 module.exports = {
   isUnique,
   isUniqueNoDS,
   isPermutation,
+  bomberMan,
+  toggleColumn,
+  toggleRow,
 };
 
