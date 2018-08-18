@@ -1,4 +1,4 @@
-// Check if string has all unique chars. Then, do not use data structures.
+// 1. Check if string has all unique chars. Then, do not use data structures.
 const isUnique = (string) => {
   // if is valid character validation
 
@@ -28,6 +28,7 @@ const isUniqueNoDS = (string) => {
   return true;
 };
 
+// 2. Check if one string is a permutation of another
 const stringToTable = (string) => {
   const table = {};
   for (let i = 0; i < string.length; i++) {
@@ -65,6 +66,7 @@ const isPermutation = (stringOne, stringTwo) => {
   return true;
 };
 
+// 3. In a matrix: if an element is '0', set all elements in its row and column to '0'
 const getAllZeroes = (matrix) => {
   const allZeroes = [];
   matrix.forEach((row, rowIndex) => {
