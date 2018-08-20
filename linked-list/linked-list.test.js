@@ -87,6 +87,32 @@ describe('linked-lists', () => {
       expect(output).toBe(node1);
     });
 
+    it('should detect and return the first shared nodes between linked lists 2', () => {
+      let firstList = new LinkedList();
+      let secondList = new LinkedList();
+
+      const node0 = {text: 'zero'};
+      const node1 = {text: 'first'};
+      const node2 = {text: 'second'};
+      const node3 = {text: 'third'};
+      const node4 = {text: 'fourth'};
+      const node5 = {text: 'fifth'};
+      const node6 = {text: 'sixth'};
+
+      firstList.add(node0);
+      firstList.add(node1);
+      firstList.add(node5);
+      secondList.add(node1);
+      secondList.add(node2);
+      secondList.add(node3);
+      secondList.add(node4);
+      firstList.add(node6);
+
+      const output = sharesIntersection(firstList, secondList);
+
+      expect(output).toBe(node1);
+    });
+
     it('should not detect nodes between linked lists with no shared references', () => {
       let firstList = new LinkedList();
       let secondList = new LinkedList();
