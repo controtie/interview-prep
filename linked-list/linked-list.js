@@ -29,6 +29,39 @@ const getKthElement = (list, k) => {
   return null;
 };
 
+// 2. Given to singly linked lists, determine if they intersect
+// Intersection is defined as sharing a same node by reference
+
+const sharesIntersection = (firstList, secondList) => {
+  // check if the two lists share the same tail node.
+  // If they have any shared intersection, they must terminate on the same shared node
+  if (firstList.tail === secondList.tail) {
+    return true;
+  }
+
+  // traverse list to check tail nodes in case tail pointer is broken
+  let firstTail;
+  let secondTail;
+  let firstNode = firstList.head;
+  let secondNode = secondList.head;
+
+  while (firstNode.next !== undefined) {
+    firstNode = firstNode.next;
+  }
+
+  while (secondNode.next !== undefined) {
+    secondNode = secondNode.next;
+  }
+
+  if (firstNode === secondNode) {
+    return true;
+  }
+
+  return false;
+};
+
+
 module.exports = {
   getKthElement,
+  sharesIntersection,
 };
