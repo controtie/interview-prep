@@ -7,16 +7,7 @@ const getKthElement = (list, k) => {
   let kCounter = 1;
   let kthElement = currentNode;
 
-  while (currentNode !== undefined) {
-    if (currentNode.next === undefined) {
-      if (kCounter < k) {
-        // there is no k-th element. List is too small
-        return null;
-      } else {
-        return kthElement;
-      }
-    }
-
+  while (currentNode.next !== undefined) {
     if (kCounter < k) {
       kCounter += 1;
     } else {
@@ -26,7 +17,12 @@ const getKthElement = (list, k) => {
     currentNode = currentNode.next;
   }
 
-  return null;
+  if (kCounter < k) {
+    // there is no k-th element. List is too small
+    return null;
+  }
+
+  return kthElement;
 };
 
 // 2. Given to singly linked lists, determine if they intersect
