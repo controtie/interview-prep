@@ -27,6 +27,19 @@ const getKthElement = (list, k) => {
 
 // 2. Given to singly linked lists, determine if they intersect
 // Intersection is defined as sharing a same node by reference
+// If they intersect, return the intersecting node
+
+const getListLength = (list) => {
+  let counter = 0;
+  let currentNode = list.head;
+
+  while (currentNode !== undefined) {
+    counter++;
+    currentNode = currentNode.next;
+  }
+
+  return counter;
+};
 
 const sharesIntersection = (firstList, secondList) => {
   // check if the two lists share the same tail node.
@@ -49,11 +62,19 @@ const sharesIntersection = (firstList, secondList) => {
     secondNode = secondNode.next;
   }
 
-  if (firstNode === secondNode) {
-    return true;
+  if (firstNode !== secondNode) {
+    return false;
   }
 
-  return false;
+  // LinkedList.length is unreliable, since length property is only controlled by 'add' method
+  const firstListLength = getListLength(firstList);
+  const secondListLength = getListLength(secondList);
+
+  if (firstListLength > secondListLength) {
+    return getKthElement(firstList, secondListLength);
+  }
+
+  return getKthElement(secondList, firstListLength);
 };
 
 

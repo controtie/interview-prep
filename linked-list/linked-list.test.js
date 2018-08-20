@@ -67,7 +67,7 @@ describe('linked-lists', () => {
   });
 
   describe('intersection', () => {
-    it('should detect shared nodes between linked lists', () => {
+    it('should detect and return the first shared nodes between linked lists', () => {
       let firstList = new LinkedList();
       let secondList = new LinkedList();
 
@@ -84,7 +84,7 @@ describe('linked-lists', () => {
 
       const output = sharesIntersection(firstList, secondList);
 
-      expect(output).toBe(true);
+      expect(output).toBe(node1);
     });
 
     it('should not detect nodes between linked lists with no shared references', () => {
