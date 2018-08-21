@@ -1,0 +1,11 @@
+Stacks & Queues:
+
+Stacks:
+- A stack stores data in last-in, first-out scheme (like a stack of dinner plates)
+- Commonly implemented methods: push(), pop(), peek(), isEmpty()
+- Commonly used: implementing recursive algorithms iteratively, stack-based machine languages
+
+Queue:
+- A queue stores data in first-in, first-out scheme (like a line at a cash register)
+- Commonly implemented methods: add(), remove(), peek(), isEmpty()
+- Commonly used: breadth first search. Populate queue with next set of nodes to search for
